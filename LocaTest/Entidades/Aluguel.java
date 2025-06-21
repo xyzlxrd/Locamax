@@ -7,21 +7,43 @@ import java.time.temporal.ChronoUnit;
 
 public class Aluguel {
 
+    public enum FormaPagamento {
+        CREDITO("Cartão de Crédito"),
+        DEBITO("Cartão Débito"),
+        PIX("Pix"),
+        TRANSFERENCIA("Transferência"),
+        BOLETO("Boleto");
+
+        private String descricao;
+
+        FormaPagamento(String descricao) {
+            this.descricao = descricao;
+        }
+
+        public String getDescricao() {
+            return descricao;
+        }
+    }
+
     private int idAluguel;
     private int idCliente;
     private int idCarro;
+
+    private Cliente cliente;
+    private Carro carro;
+
     private LocalDate dataRetirada;
     private LocalDate dataDevolucao;
     private LocalTime horaRetirada;
     private LocalTime horaDevolucao;
     private double valorContrato;
-    private String formaDePagamento;
+    private FormaPagamento formaDePagamento;
 
-    public Aluguel(int idCliente, int idCarro, LocalDate dataRetirada, LocalDate dataDevolucao, LocalTime horaRetirada, LocalTime horaDevolucao, 
-    double valorContrato, String formaPagamento) {
+    public Aluguel(Cliente cliente, Carro carro, LocalDate dataRetirada, LocalDate dataDevolucao, LocalTime horaRetirada, LocalTime horaDevolucao, 
+    double valorContrato, FormaPagamento formaPagamento) {
 
-        this.idCliente = idCliente;
-        this.idCarro = idCarro;
+        this.cliente = cliente;
+        this.carro = carro;
 
         this.dataRetirada = LocalDate.now();
         this.dataDevolucao = dataDevolucao;
@@ -33,6 +55,7 @@ public class Aluguel {
         this.formaDePagamento = formaPagamento;
     }
 
+    //GETTERS & SETTERS DOS IDs
     public int getIdAluguel() {return idAluguel;}
     public void setIdAluguel(int idAluguel) {this.idAluguel = idAluguel;}
 
@@ -42,6 +65,15 @@ public class Aluguel {
     public int getIdCarro() {return idCarro;}
     public void setIdCarro(int idCarro) {this.idCarro = idCarro;}
 
+
+    //GETTERS & SETTERS DO CARRO E CLIENTE
+    public Cliente getCliente() {return cliente;}
+    public void setCliente(Cliente cliente) {this.cliente = cliente;}
+
+    public Carro getCarro() {return carro;}
+    public void setCarro(Carro carro) {this.carro = carro;}
+
+    //GETTERS & SETTERS DOS DEMAIS ATRIBUTOS
     public void setDataRetirada(String novaDataRetirada) {
 
         try {
@@ -105,10 +137,10 @@ public class Aluguel {
         return valorContrato;
     }
 
-    public void setFormaPagamento(String formaPagamento) {
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaDePagamento = formaPagamento;
     }
-    public String getFormaPagamento() {
+    public FormaPagamento getFormaPagamento() {
         return formaDePagamento;
     }
 }
