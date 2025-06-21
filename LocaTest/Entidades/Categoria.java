@@ -1,13 +1,21 @@
 package Entidades;
 
-public class Categoria {//Criação do Objeto "Categoria" com seus respectivos atributos aos quais foram definidos no database
-    
+public class Categoria {
+
+    private int idCategoria;
     private String nomeCategoria;
     private double valorDiaria;
 
     public Categoria(String nomeCategoria, double valorDiaria) {
         this.nomeCategoria = nomeCategoria;
         this.valorDiaria = valorDiaria;
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getNomeCategoria() {
