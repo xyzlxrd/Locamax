@@ -4,9 +4,15 @@ import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 
+import Entidades.Carro.Cambio;
+import Entidades.Carro.Disponibilidade;
+import Entidades.Carro.PotenciaMotor;
+import Entidades.Carro.TipoCombustivel;
+
 public class Colaborador extends Pessoa {
         ArrayList<Categoria> categorias = new ArrayList<>();
         ArrayList<Modelo> modelos = new ArrayList<>();
+        ArrayList<Carro> carros = new ArrayList<>();
     
     private int idColaborador;
     private int idPessoa;
@@ -112,6 +118,67 @@ public class Colaborador extends Pessoa {
         return new ArrayList<>(this.categorias);
     }
 
+    //--- MÉTODOS PARA ACESSAR, ADICIONAR, E/OU REMOVER OS CARROS ABAIXO:
+
+    public Carro criarCarro(Categoria categoria, Modelo modelo, String nomeCarro, String placa, int qntAssentos, int qntPortas, int quilometragem, TipoCombustivel tipoCombustivel,
+    PotenciaMotor potenciaMotor, Cambio cambio, int capacidadeTanque, boolean arCondicionado, boolean airbag, String cor, Disponibilidade disponibilidade) {
+
+        Carro novoCarro = new Carro(categoria, modelo, nomeCarro, placa, qntAssentos, qntPortas, quilometragem, tipoCombustivel, potenciaMotor, cambio, capacidadeTanque, arCondicionado, airbag, cor, disponibilidade);
+
+        System.out.println("Modelo do Carro: "+novoCarro.getModelo());
+        System.out.println("Categoria do Carro: "+novoCarro.getCategoria());
+
+        System.out.println("Nome do Carro: "+novoCarro.getNomeCarro());
+        System.out.println("Placa do Carro: "+novoCarro.getPlaca());
+        System.out.println("Quantidade de Assentos do Carro: "+novoCarro.getQntAssentos());
+        System.out.println("Quantidade de Portas do Carro: "+novoCarro.getQntPortas());
+        System.out.println("Quilometragem do Carro: "+novoCarro.getQuilometragem());
+        System.out.println("Tipo de Combustível do Carro: "+novoCarro.getTipoCombustivel());
+        System.out.println("Potencia Motor do Carro: "+novoCarro.getPotenciaMotor());
+        System.out.println("Cambio do Carro: "+novoCarro.getCambio());
+        System.out.println("Capacidade de Combustível do Carro: "+novoCarro.getCapacidadeTanque());
+        System.out.println("Ar Condicionado: "+novoCarro.getArCondicionado());
+        System.out.println("Air Bag: "+novoCarro.getAirbag());
+        System.out.println("Cor do Carro: "+novoCarro.getCor());
+        System.out.println("Disponibilidade do Carro: "+novoCarro.getDisponibilidade());
+
+        return novoCarro;
+    }
+
+    public void listaCarro() {
+        if (carros.isEmpty()) {
+            System.out.println("\nNão há nenhum carro registrada.");
+        } else {
+            System.out.println("\n--- Carros Registradas ---");
+            for (Carro carro : carros) {
+                System.out.println(carro);
+            }
+            System.out.println("\n------------------------------");
+        }
+    }
+
+    public void adicionarCarro(Carro carro) {
+        if (carro!=null) {
+            carros.add(carro);
+            System.out.println("Nome do Carro Adicionado(a): "+carro.getNomeCarro());
+            System.out.println("Placa do Carro Adicionado(a): "+carro.getPlaca());
+        } else {
+            System.out.println("Não é possível adicionar um carro nulo.");
+        }
+    }
+
+    public boolean removerCarro(String placaCarro) {
+        for (int i=0; i<carros.size(); i++) {
+            if (carros.get(i).getPlaca().equalsIgnoreCase(placaCarro)) {
+                carros.remove(i);
+                System.out.println("Carro Removido: "+placaCarro);
+                return true;
+            }
+        }
+            System.out.println("Carro de placa '"+placaCarro+"' não foi encontrado(a).");
+            return false;
+    }
+    
     //--- GETTERS & SETTERS DA CLASSE ABAIXO:
 
     public int getIdColaborador() {
