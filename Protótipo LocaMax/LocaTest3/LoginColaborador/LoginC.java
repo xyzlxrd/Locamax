@@ -13,7 +13,7 @@ import Entidades.Endereco;
 import Entidades.Modelo;
 import Entidades.Pessoa;
 
-public class LoginC {
+public class LoginC { //Não está sendo utilizado, esqueci de estar removendo :D
     
 public static void main(String[] args) throws Exception {
     Scanner scanner = new Scanner(System.in);
