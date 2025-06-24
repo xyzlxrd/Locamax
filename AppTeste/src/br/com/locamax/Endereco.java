@@ -5,7 +5,7 @@ import br.com.regras_validacao.ValidaEndereco;
 import br.com.regras_validacao.ValidaEndereco2;
 
 public class Endereco {
-	private int idPessoa;
+	private int idEndereco;
     private String cep;
     private String pais;
     private String estado;
@@ -14,8 +14,19 @@ public class Endereco {
     private String rua;
     private String numero;
     
-	public int getIdPessoa() {
-		return idPessoa;
+  //Construtor Completo
+    public Endereco(String cep, String pais, String estado, String cidade, String bairro, String rua, String numero) {
+        this.cep = cep;
+        this.pais = pais;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.rua = rua;
+        this.numero = numero;
+    }
+    
+	public int getEndereco() {
+		return idEndereco;
 	}
 
 	public String getCep() {

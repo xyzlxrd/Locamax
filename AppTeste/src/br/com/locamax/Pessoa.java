@@ -6,13 +6,25 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import br.com.regras_validacao.*;
 
-public class Pessoa {
+public class Pessoa extends Endereco {
+	
 	private int idPessoa;
 	private String cpf;
 	private String cnh;
     private String nome;
     private LocalDate dataNascimento;
     private String telefone;
+    
+  //Construtor Completo
+    public Pessoa(String cpf, String cnh, String nome, LocalDate dataNascimento, String telefone, String cep, 
+    	   String pais, String estado, String cidade, String bairro, String rua, String numero) {
+        		super(cep, pais, estado, cidade, bairro, rua, numero);
+    	        this.cpf = cpf;
+    	        this.cnh = cnh;
+    	        this.nome = nome;
+    	        this.dataNascimento = dataNascimento;
+    	        this.telefone = telefone;
+   }
 
 	public int getIdPessoa() {
 		return idPessoa;
@@ -58,6 +70,7 @@ public class Pessoa {
 		return dataNascimento;
 	}
 	public void setDataNascimento(String nascimento) {
+		// Formata a data informada e verifica se o usuário não tem mais de 150 anos
 		try {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			LocalDate data = LocalDate.parse(nascimento, formatter);
