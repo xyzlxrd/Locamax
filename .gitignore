@@ -1,0 +1,9 @@
+# =========================
+# IGNORAR INSTALADORES / BINÁRIOS
+*.exe
+*.msi
+*.zip
+
+# =========================
+# IGNORAR LIBS GIGANTES OPCIONAIS
+/resources/

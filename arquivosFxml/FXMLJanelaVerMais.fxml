@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="1080.0" style="-fx-background-color: rgb(221,207,235);" stylesheets="@fxmljanelalogin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxtest.Controladores.FXMLJanelaVerMaisController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="80.0" prefWidth="1053.0" styleClass="bglocamax" stylesheets="@fxmljanelalogin.css">
+         <children>
+            <ImageView fitHeight="181.0" fitWidth="298.0" layoutX="-42.0" layoutY="-48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/locamaxMain.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="926.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnCompra" prefHeight="52.0" prefWidth="57.0" styleClass="btn_carrinho">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="120.0" prefHeight="507.0" prefWidth="1053.0">
+         <children>
+            <Pane layoutX="661.0" layoutY="141.0" prefHeight="354.0" prefWidth="372.0">
+               <children>
+                  <Text layoutX="23.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" text="Portas:" />
+                  <Text fx:id="numPortas" layoutX="88.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+                  <Text layoutX="23.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" text="Ar condicionado:" />
+                  <Text fx:id="boolArCond" layoutX="164.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+                  <Text layoutX="23.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" text="Assentos: " />
+                  <Text fx:id="numAssentos" layoutX="103.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+                  <Text layoutX="23.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" text="Cambio:" />
+                  <Text fx:id="textCambio" layoutX="97.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+                  <Text layoutX="23.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" text="Airbag:" />
+                  <Text fx:id="boolAirbag" layoutX="90.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+                  <Text layoutX="23.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" text="Capacidade tanque:" />
+                  <Text fx:id="numCapTanque" layoutX="184.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+                  <Text layoutX="23.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" text="Motorização:" />
+                  <Text fx:id="numTipoMotor" layoutX="133.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+                  <Button layoutX="100.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnAlugar" styleClass="botaoregistro" stylesheets="@fxmljanelalogin.css" text="Alugar por 1 dia" />
+                  <Text layoutX="99.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" text="PREÇO DIÁRIA: " />
+                  <Text fx:id="numPreco" layoutX="226.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+               </children>
+            </Pane>
+            <ImageView fx:id="imgCarro" fitHeight="301.0" fitWidth="460.0" layoutX="43.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fx:id="txtNome" layoutX="173.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+            <Text fx:id="txtTipo" layoutX="248.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+            <AnchorPane layoutX="661.0" layoutY="20.0" prefHeight="129.0" prefWidth="372.0">
+               <children>
+                  <Text fx:id="txtDesc" layoutX="2.0" layoutY="20.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textInfo" />
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
