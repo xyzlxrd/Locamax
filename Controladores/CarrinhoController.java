@@ -81,6 +81,7 @@ public class CarrinhoController implements Initializable {
     
     @FXML
     private void confirmarReserva(ActionEvent event) {
+        Carrinho.getInstance().add--;
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Reserva Confirmada");
         alert.setHeaderText(null);

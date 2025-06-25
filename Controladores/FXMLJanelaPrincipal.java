@@ -53,17 +53,14 @@ public class FXMLJanelaPrincipal implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tilePaneCarros.setHgap(15);
+        tilePaneCarros.setHgap(20);
         tilePaneCarros.setVgap(15);
+        tilePaneCarros.setPrefWidth(1100);
         carregarCarros();
         
         qntdAssentos.setItems(FXCollections.observableArrayList("2", "3", "4", "5"));
-        tipoComb.setItems(FXCollections.observableArrayList("Gasolina", "Etanol", "Diesel", "Flex"));
+        tipoComb.setItems(FXCollections.observableArrayList("", "Gasolina", "Etanol", "Diesel", "Flex"));
         capMotor.setItems(FXCollections.observableArrayList("1.0", "1.3", "1.4", "1.6", "1.8", "2.0", "2.4", "3.0"));
-    }
-    
-    public void btnBuscar(ActionEvent event) {
-        System.out.println("Busca");
     }
     
     public void btnFiltrar(ActionEvent event) {
@@ -185,7 +182,7 @@ public class FXMLJanelaPrincipal implements Initializable {
         VBox vbox = new VBox(15, titulo, subtitulo, imagem, precoBox, verMais);
         vbox.getStyleClass().add("cardCarro");
         vbox.setAlignment(Pos.CENTER);
-        vbox.setPrefWidth(260);
+        vbox.setPrefWidth(275);
         vbox.setPadding(new Insets(15));
 
         if (!tilePaneCarros.getStylesheets().contains(getClass().getResource("/javafxtest/arquivosFxml/fxmljanelalogin.css").toExternalForm())) {
