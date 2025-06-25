@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafxtest.IntegracaoBancoDados;
@@ -16,6 +17,8 @@ import javafxtest.Validacao;
 public class FXMLJanelaRegistro2 {
     @FXML
     private TextField textUsername;
+    @FXML
+    private Label textErroEmail;
     @FXML
     private PasswordField textPassword;
     @FXML
@@ -26,17 +29,24 @@ public class FXMLJanelaRegistro2 {
         this.idPessoa = id;
     }
     
-    @FXML
     private void botaoRegistro(ActionEvent event) throws IOException {
         System.out.println("Botão Finalizar Cadastro clicado!");
     }
 
+    @FXML
     public void botaoFinalizarRegistro(ActionEvent event) throws IOException {
         String username = textUsername.getText();
         String password = textPassword.getText();
         String email = textEmail.getText();
         
+        boolean emails = Validacao.isEmail(email);
         Validacao.isEmail(email);
+        
+        boolean erro = false;
+        if(emails == false){textErroEmail.setText("Email Inválido(a)."); erro = true;} else{textErroEmail.setText("");}
+        if(erro){
+            return;
+        }
         
         boolean sucesso = IntegracaoBancoDados.registroDeLogin(
             idPessoa, username, password, email

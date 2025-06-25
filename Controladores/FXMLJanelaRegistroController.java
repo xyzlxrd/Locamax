@@ -10,8 +10,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import javafxtest.IntegracaoBancoDados;
 import javafxtest.Validacao;
@@ -20,27 +23,55 @@ public class FXMLJanelaRegistroController implements Initializable {
     @FXML
     private TextField textNome;
     @FXML
+    private Label textErroNome;
+    @FXML
     private TextField numCEP;
+    @FXML
+    private Label textErroCEP;
     @FXML
     private TextField textRua;
     @FXML
+    private Label textErroRua;
+    @FXML
     private TextField numCPF;
+    @FXML
+    private Label textErroCPF;
     @FXML
     private TextField textEstado;
     @FXML
+    private Label textErroEstado;
+    @FXML
     private TextField numNumeroResid;
+    @FXML
+    private Label textErroNumResid;
     @FXML
     private TextField selectPais;
     @FXML
+    private Label textErroPais;
+    @FXML
     private TextField textBairro;
+    @FXML
+    private Label textErroBairro;
     @FXML
     private TextField numTelefone;
     @FXML
+    private Label textErroTelefone;
+    @FXML
     private TextField numCNH;
+    @FXML
+    private Label textErroCNH;
     @FXML
     private TextField textCidade;
     @FXML
+    private Label textErroCidade;
+    @FXML
     private DatePicker numNascimento;
+    @FXML
+    private Label textErroNascimento;
+    @FXML
+    private Button botaoRegistro;
+    @FXML
+    private ToggleGroup genero;
     
     
     
@@ -57,32 +88,48 @@ public class FXMLJanelaRegistroController implements Initializable {
         String estado = textEstado.getText();
         String pais = selectPais.getText();
         String cnh = numCNH.getText();
-        String nascimento = numNascimento.getValue().toString();
         
         boolean nomefunc = Validacao.isNome(nome);
-        Validacao.isNome(nome);
         boolean cepfunc = Validacao.isCEP(cep);
-        Validacao.isCEP(cep);
         boolean telecofunc = Validacao.isTelefone(telefone);
-        Validacao.isTelefone(telefone);
         boolean cnhfunc = Validacao.isCNH(cnh);
-        Validacao.isCNH(cnh);
         boolean cpffunc = Validacao.isCPF(cpf);
-        Validacao.isCPF(cpf);
         boolean paisfunc = Validacao.isEndereco1(pais);
-        Validacao.isEndereco1(pais);
         boolean estadofunc = Validacao.isEndereco1(estado);
-        Validacao.isEndereco1(estado);
         boolean cidadefunc = Validacao.isEndereco1(cidade);
-        Validacao.isEndereco1(cidade);
         boolean ruafunc = Validacao.isEndereco2(rua);
-        Validacao.isEndereco2(rua);
         boolean bairrofunc = Validacao.isEndereco2(bairro);
-        Validacao.isEndereco2(bairro);
         boolean numerofunc = Validacao.isEndereco2(numero);
-        Validacao.isEndereco2(numero);
-        boolean nascfunc = Validacao.getAno(nascimento);
-        Validacao.getAno(nascimento);
+        
+        boolean erro = false;
+        if(nomefunc == false){textErroNome.setText("Nome Inválido(a)."); erro = true;} else{textErroNome.setText("");}
+        if(cepfunc == false){textErroCEP.setText("CEP Inválido."); erro = true;} else{textErroCEP.setText("");}
+        if(cnhfunc == false){textErroCNH.setText("CNH Inválido."); erro = true;} else{textErroCNH.setText("");}
+        if(telecofunc == false){textErroTelefone.setText("Telefone Inválido."); erro = true;} else{textErroTelefone.setText("");}
+        if(cpffunc == false){textErroCPF.setText("CPF Inexistente/Apenas numeros."); erro = true;} else{textErroCPF.setText("");}
+        if(paisfunc == false){textErroPais.setText("País Inválido."); erro = true;} else{textErroPais.setText("");}
+        if(estadofunc == false){textErroEstado.setText("Estado Inválido."); erro = true;} else{textErroEstado.setText("");}
+        if(cidadefunc == false){textErroCidade.setText("Cidade Inválida."); erro = true;} else{textErroCidade.setText("");}
+        if(ruafunc == false){textErroRua.setText("Rua Inválida."); erro = true;} else{textErroRua.setText("");}
+        if(bairrofunc == false){textErroBairro.setText("Bairro Inválido."); erro = true;} else{textErroBairro.setText("");}
+        if(numerofunc == false){textErroNumResid.setText("Numero Inválido."); erro = true;} else{textErroNumResid.setText("");}
+        
+        boolean nascfunc = false;
+        String nascimento = null;
+
+        LocalDate nascimentoDate = numNascimento.getValue();
+        if (nascimentoDate == null) {
+            textErroNascimento.setText("Selecione a data de nascimento.");
+        } else {
+            nascimento = nascimentoDate.toString();
+            nascfunc = Validacao.getAno(nascimento);
+            if (!nascfunc) {
+                textErroNascimento.setText("Data de nascimento inválida.");
+            } else{textErroNascimento.setText("");}
+        }
+        if(erro){
+            return;
+        }
         
         
         if(nomefunc == true && cepfunc == true && telecofunc == true && cnhfunc == true &&

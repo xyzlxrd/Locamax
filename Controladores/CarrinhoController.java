@@ -1,6 +1,8 @@
 package javafxtest.Controladores;
 
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -12,7 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafxtest.Carrinho;
 import javafxtest.CarroGetSet;
-import javafx.scene.text.Text;
+import javafxtest.Validacao;
 
 public class CarrinhoController implements Initializable {
 
@@ -21,7 +23,11 @@ public class CarrinhoController implements Initializable {
     @FXML
     private Label numeroDias;
     @FXML
-    private Text totalPagar;
+    private Label totalPagar;
+    double preco;
+    String dataRetirada;
+    String dataRetorno;
+    int dias;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -29,26 +35,47 @@ public class CarrinhoController implements Initializable {
         for (CarroGetSet carro : carros) {
             Label label = new Label(carro.getNomeCarro() + " - R$" + String.format("%.2f", carro.getValorDiaria()) + "/dia");
             vboxItens.getChildren().add(label);
+            preco = carro.getValorDiaria();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            dataRetirada = carro.getDataRet().format(formatter);
+            dataRetorno = carro.getDataDev().format(formatter);
+            dias = Validacao.getDia(dataRetirada, dataRetorno);
+            
+            //MOSTRAR NA TELA
+            DecimalFormat df = new DecimalFormat("#.00");
+            double precoTotal = (double)quantia * preco;
+            String textoFormatado = df.format(precoTotal);
+            totalPagar.setText("R$: " + textoFormatado);
+            String qntdDias = String.valueOf(quantia);
+            numeroDias.setText(qntdDias);
         }
     }    
-
+    
     int quantia = 1;
-    int dias = 5;
     
     @FXML
     private void diminuir(ActionEvent event) {
-        if(quantia > 0){
-            quantia--;
+        if(quantia > 1){
+            DecimalFormat df = new DecimalFormat("#.00");
+            --quantia;
             String qntdDias = String.valueOf(quantia);
             numeroDias.setText(qntdDias);
+            double precoTotal = (double)quantia * preco;
+            String textoFormatado = df.format(precoTotal);
+            totalPagar.setText("R$: " + textoFormatado);
         }
     }
+    
     @FXML
     private void aumentar(ActionEvent event) {
         if(quantia < dias){ 
+            DecimalFormat df = new DecimalFormat("#.00");
             quantia++;
             String qntdDias = String.valueOf(quantia);
             numeroDias.setText(qntdDias);
+            double precoTotal = (double)quantia * preco;
+            String textoFormatado = df.format(precoTotal);
+            totalPagar.setText("R$: " + textoFormatado);
         }
     }
     
@@ -57,10 +84,9 @@ public class CarrinhoController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Reserva Confirmada");
         alert.setHeaderText(null);
-        alert.setContentText("A reserva foi confirmada com sucesso!");
+        alert.setContentText("A reserva foi confirmada com sucesso! Para pagar venha ate loja!");
         alert.showAndWait();
         Carrinho.getInstance().limpar();
-        ((Stage) vboxItens.getScene().getWindow()).close();
-        }
-    
+        ((Stage)vboxItens.getScene().getWindow()).close();
+    }
 }

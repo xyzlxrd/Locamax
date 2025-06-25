@@ -1,5 +1,7 @@
 package javafxtest;
 
+import java.time.LocalDate;
+
 public class CarroGetSet {
     private int idCarro;
     private int idCategoria;
@@ -20,6 +22,8 @@ public class CarroGetSet {
     private double valorDiaria;
     private String descricao;
     private String nomeCategoria;
+    private LocalDate dataRetirada;
+    private LocalDate dataDevolucao;
     
 
     public int getIdCarro() { return idCarro; }
@@ -77,4 +81,10 @@ public class CarroGetSet {
     
     public String getNomeCategoria() { return nomeCategoria; }
     public void setNomeCategoria(String nomeCategoria) { this.nomeCategoria = nomeCategoria; }
+    
+    public LocalDate getDataRet() { return dataRetirada; }
+    public void setDataRet(LocalDate dataRetirada) { this.dataRetirada = dataRetirada; }
+    
+    public LocalDate getDataDev() { return dataDevolucao; }
+    public void setDataDev(LocalDate dataDevolucao) { this.dataDevolucao = dataDevolucao; }
 }

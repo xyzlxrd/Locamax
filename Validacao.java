@@ -10,25 +10,24 @@ import java.util.regex.Pattern;
 public class Validacao {
 	static int quantDias;
 	
-	public static void getDia(String dataRetirada, String dataRetorno){
+	public static int getDia(String dataRetirada, String dataRetorno){
 		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			LocalDate retirada = LocalDate.parse(dataRetirada, formatter);
 			LocalDate retorno = LocalDate.parse(dataRetorno, formatter);
 			Period periodo = Period.between(retirada, retorno);
 			if(periodo.getDays() >= 1) {
-				quantDias = periodo.getDays();
+				return periodo.getDays();
 				
-			}else {
-				dataRetorno = null;
-				dataRetirada = null;
+			}
+                        else {
 				String msm1 = "A data de retirada deve ser maior que a data retorno";}
 				
-		} catch (DateTimeParseException e) {
-	        String msm2 ="Data inválida. Siga a formatação (dd/MM/yyyy).";
-	        dataRetorno = null;
-			dataRetirada = null;
+		} 
+                catch (DateTimeParseException e) {
+                    String msm2 ="Data inválida. Siga a formatação (dd/MM/yyyy).";
 		}
+                return 0;
 	}
         
         public static boolean getAno(String nascimento){

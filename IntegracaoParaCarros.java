@@ -48,6 +48,8 @@ public class IntegracaoParaCarros {
                 carro.setValorDiaria(rs.getDouble("valor_diaria"));
                 carro.setNomeCategoria(rs.getString("nome_categoria"));
                 carro.setDescricao(rs.getString("descricao"));
+                carro.setDataRet(rs.getDate("data_retirada").toLocalDate());
+                carro.setDataDev(rs.getDate("data_devolucao").toLocalDate());
 
                 carros.add(carro);
             }
@@ -109,6 +111,8 @@ public class IntegracaoParaCarros {
                 carro.setValorDiaria(rs.getDouble("valor_diaria"));
                 carro.setNomeCategoria(rs.getString("nome_categoria"));
                 carro.setDescricao(rs.getString("descricao"));
+                carro.setDataRet(rs.getDate("data_retirada").toLocalDate());
+                carro.setDataDev(rs.getDate("data_devolucao").toLocalDate());
                 carros.add(carro);
             }
         } catch (SQLException e) {

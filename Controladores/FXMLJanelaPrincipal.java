@@ -58,7 +58,7 @@ public class FXMLJanelaPrincipal implements Initializable {
         carregarCarros();
         
         qntdAssentos.setItems(FXCollections.observableArrayList("2", "3", "4", "5"));
-        tipoComb.setItems(FXCollections.observableArrayList("Gasolina", "Etanol", "Diesel"));
+        tipoComb.setItems(FXCollections.observableArrayList("Gasolina", "Etanol", "Diesel", "Flex"));
         capMotor.setItems(FXCollections.observableArrayList("1.0", "1.3", "1.4", "1.6", "1.8", "2.0", "2.4", "3.0"));
     }
     
@@ -129,7 +129,7 @@ public class FXMLJanelaPrincipal implements Initializable {
     }
 
     private void carregarCarros() {
-        List<Integer> categoriasSelecionadas = Arrays.asList(1, 2, 3);
+        List<Integer> categoriasSelecionadas = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
         List<CarroGetSet> carros = IntegracaoParaCarros.listarPorCategorias(categoriasSelecionadas);
 
         for (CarroGetSet carro : carros) {
