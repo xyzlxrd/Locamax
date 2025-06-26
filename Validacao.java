@@ -67,7 +67,7 @@ public class Validacao {
 	}
 	
 	public static boolean isEndereco1(String pais) {
-            String rgxPais = "^[a-zA-Z]*$"; //REGEX ALTERADO: "^[A-Za-z]$" > "^[A-Za-zÀ-ÿ\\s]+$"
+            String rgxPais = "^[a-zA-ZÀ-ÿ\\s]+$"; //REGEX ALTERADO: "^[A-Za-z]$" > "^[A-Za-zÀ-ÿ\\s]+$"
             Pattern padrao = Pattern.compile(rgxPais);
             Matcher igual = padrao.matcher(pais);
             if(pais.length() >1 && pais.length()<50 && igual.matches() == true) {
