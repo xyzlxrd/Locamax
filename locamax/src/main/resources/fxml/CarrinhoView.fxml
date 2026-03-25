@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="700.0" prefWidth="472.0" spacing="15" style="-fx-background-color: white; -fx-border-radius: 20; -fx-background-radius: 20; -fx-padding: 20;" stylesheets="@/css/main.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.locamax.controller.CarrinhoController">
+
+    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" styleClass="titulo" text="Carrinho de Compras" />
+    <VBox fx:id="vboxItens" spacing="10" style="-fx-font-size: 14px; -fx-alignment: center;" />
+   <HBox prefHeight="13.0" prefWidth="432.0" styleClass="hboxCompra">
+      <children>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textDaSoma" text="Quantidade de dias:" />
+         <Label fx:id="lblNumeroDias" styleClass="textDaSoma" />
+         <Button mnemonicParsing="false" onAction="#onDiminuir" styleClass="btnSoma" text="-">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Button mnemonicParsing="false" onAction="#onAumentar" styleClass="btnSoma" text="+" />
+      </children>
+   </HBox>
+   <HBox prefHeight="12.0" prefWidth="432.0" styleClass="hboxCompra">
+      <children>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textDaSoma" text="Valor Total:" />
+         <Label fx:id="lblTotalPagar" styleClass="textDaSoma" />
+      </children>
+   </HBox>
+    <Button onAction="#onConfirmarReserva" style="-fx-background-color: #8EFF74; -fx-background-radius: 10; -fx-padding: 8 20; -fx-font-weight: bold;" text="Confirmar Reserva" />
+</VBox>
