@@ -1,0 +1,209 @@
+.mainFxmlClass {
+}
+.bglogin {
+    -fx-background-image: url("../img/LOCAMAX.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+.inputlogin {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-background-radius: 18;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    -fx-border-radius: 18;
+    -fx-padding: 10 20;
+    -fx-text-fill: black;
+    -fx-font-size: 10pt;
+}
+
+.botaologin {
+    -fx-background-color: linear-gradient(to top, #1e4217, #76e043);
+    -fx-background-radius: 25;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    -fx-border-radius: 25;
+    -fx-padding: 5 20;
+    -fx-text-fill: black;
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+.botaologin:hover{
+    -fx-background-color: linear-gradient(to top, #474747, #ffffff);
+}
+
+.botaoregistro{
+    -fx-background-color: linear-gradient(to top, #4d8238, #86e85f);
+    -fx-background-radius: 25;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    -fx-border-radius: 25;
+    -fx-padding: 5 20;
+    -fx-text-fill: black;
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+.botaoregistro:hover{
+    -fx-background-color: linear-gradient(to top, #a083a3, #b29ab5);
+}
+
+.date-picker, .text-field {
+    -fx-background-color: #f0e9fb;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: transparent;
+    -fx-font-size: 14px;
+}
+
+.date-picker > .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.bglocamax{
+    -fx-background-color: linear-gradient(to top, #351e47, #522a79);
+}
+
+.btnTipo{
+    -fx-background-color: #3a244a;
+    -fx-text-fill: white;
+}
+
+.btnTipo:hover{
+    -fx-background-color: #a996ba;
+    -fx-text-fill: black;
+}
+
+.btnTipo:selected{
+    -fx-background-color: #652ba2;
+    -fx-text-fill: white;
+}
+
+.cardCarro {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10,0,0,4);
+    -fx-padding: 20 15 20 15;
+    -fx-alignment: center;
+}
+
+.cardCarro .titulo {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}
+
+.preco-box {
+    -fx-background-color: #c1b3f1;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-spacing: 5;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5,0,0,2);
+}
+
+.preco-box Label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.button-vermais {
+    -fx-background-color: #b4f567;
+    -fx-background-radius: 20;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-padding: 6 20 6 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5,0,0,1);
+}
+
+.button-vermais:hover {
+    -fx-background-color: #95d130;
+}
+
+.btn_carrinho{
+    -fx-background-image: url("../img/cart_img.png");
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 55px 55px;
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.textInfo {
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222;
+}
+
+/*COMBOOOO BOXXX*/
+
+.combo-box {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #888888;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: #333333;
+    -fx-font-size: 10px; 
+}
+
+.combo-box:hover {
+    -fx-border-color: #3a86ff;
+    -fx-cursor: hand;
+}
+
+.combo-box:focused {
+    -fx-border-color: #1d4ed8;         
+    -fx-box-shadow: 0 0 5px #1d4ed8;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: transparent;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
+    -fx-padding: 0 4 0 0;
+    -fx-background-insets: 0;
+    -fx-fill: #333333;
+}
+
+/*Tlea de compra STYLESS*/
+
+.hboxCompra{
+    -fx-padding: 30;
+    -fx-spacing: 10;
+}
+
+.textDaSoma{
+    -fx-font-size: 20px;
+}
+
+.btnSoma{
+    -fx-background-color: #8EFF74;
+    -fx-background-radius: 10;
+    -fx-padding: 8 20;
+    -fx-font-weight: bold;
+}
+
+
+/*scrollpane*/
+
+.scroll-pane{
+    -fx-background-color: transparent;
+}
+.scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
